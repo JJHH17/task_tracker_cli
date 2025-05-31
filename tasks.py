@@ -21,13 +21,13 @@ class Task:
         self.__task["Created"] = datetime.today().strftime("%d-%m-%y")
 
     def add_description(self, description):
-        # TODO: Add logic of adding new ID
         self.ID += 1
         self.__task["ID"] = self.ID
         self.__task["Description"] = description
         self.__task["Updated"] = datetime.today().strftime("%d-%m-%y")
-        print(self.__task)
-        # Append to list of tasks
+        # Appending to list 
+        self.task_list.append(self.__task)
+        print(self.task_list)
 
     def update_description(self, id, description):
         # TODO: Add logic to check ID

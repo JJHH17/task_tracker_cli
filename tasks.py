@@ -12,12 +12,17 @@ class Task:
             "ID": None,
             "Description": None, 
             "Status": None,
-            "Created At": None,
-            "Updated At": None,
+            "Created": None,
+            "Updated": None,
         } # contains tasks created
+
+        # Updates "Created at" value
+        self.__task["Created"] = datetime.today().strftime("%d-%m-%y")
 
     def add_description(self, description):
         self.__task["Description"] = description
+        self.__task["Updated"] = datetime.today().strftime("%d-%m-%y")
+        print(self.__task)
         # Append to list of tasks
 
     def update_description(self, description):

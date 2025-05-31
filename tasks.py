@@ -1,6 +1,7 @@
 # FIle responsible for creating and modifying task objects
 
-tasks = [] # This will store our tasks
+from datetime import datetime # Used to get "Created at" and "Updated at" values
+
 
 class Task:
     def __init__(self, user_name):
@@ -17,7 +18,7 @@ class Task:
 
     def add_description(self, description):
         self.__task["Description"] = description
-        # Append to task list
+        # Append to list of tasks
 
     def update_description(self, description):
         pass
@@ -48,3 +49,6 @@ class Task:
 
     def append_to_list(self):
         pass # Appends to list when method is called
+
+james = Task("james")
+james.add_description("Water plants")

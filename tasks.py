@@ -7,6 +7,7 @@ class Task:
     def __init__(self, user_name):
         self.name = user_name
         self.task_list = [] # This will store our tasks
+        self.ID = 0 # This will increment when tasks are added
 
         self.__task = {
             "ID": None,
@@ -20,19 +21,31 @@ class Task:
         self.__task["Created"] = datetime.today().strftime("%d-%m-%y")
 
     def add_description(self, description):
+        # TODO: Add logic of adding new ID
+        self.ID += 1
+        self.__task["ID"] = self.ID
         self.__task["Description"] = description
         self.__task["Updated"] = datetime.today().strftime("%d-%m-%y")
         print(self.__task)
         # Append to list of tasks
 
-    def update_description(self, description):
-        pass
+    def update_description(self, id, description):
+        # TODO: Add logic to check ID
+        self.__task["Description"] = description
+        self.__task["Updated"] = datetime.today().strftime("%d-%m-%y")
 
-    def add_status(self, status):
-        pass
+    def add_status(self, id, status):
+        # TODO: Add logic to check ID
+        # TODO: Only allow user to append "NEW, ONGOING, COMPLETED" as status
+        # TODO: APPEND TO LIST
+        self.__task["Status"] = status
+        self.__task["Updated"] = datetime.today().strftime("%d-%m-%y")
 
     def update_status(self, status):
-        pass
+        # TODO: Add logic to check ID
+        # TODO: error if ID doesn't exist
+        self.__task["Status"] = status
+        self.__task["Updated"] = datetime.today().strftime("%d-%m-%y")
 
     def complete_task(self, id):
         pass # Pass ID to auto complete task
@@ -57,3 +70,6 @@ class Task:
 
 james = Task("james")
 james.add_description("Water plants")
+james.add_description("Hello")
+melissa = Task("Melissa")
+melissa.add_description("Test")

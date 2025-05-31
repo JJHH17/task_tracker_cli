@@ -2,15 +2,16 @@
 
 from datetime import datetime # Used to get "Created at" and "Updated at" values
 
+id = 0 # Used to track ID of tasks
+tasks = [] # Used to store tasks
+
 
 class Task:
-    def __init__(self, user_name):
-        self.name = user_name
-        self.task_list = [] # This will store our tasks
-        self.ID = 0 # This will increment when tasks are added
-
+    def add_item(self, description, status):
+        global id # Ensuring that ID is global
+        id += 1
         self.__task = {
-            "ID": None,
+            "ID": id,
             "Description": None, 
             "Status": None,
             "Created": None,
@@ -19,15 +20,12 @@ class Task:
 
         # Updates "Created at" value
         self.__task["Created"] = datetime.today().strftime("%d-%m-%y")
-
-    def add_description(self, description):
-        self.ID += 1
-        self.__task["ID"] = self.ID
+        self.__task["ID"] = id
         self.__task["Description"] = description
+        self.__task["Status"] = status
         self.__task["Updated"] = datetime.today().strftime("%d-%m-%y")
         # Appending to list 
-        self.task_list.append(self.__task)
-        print(self.task_list)
+        tasks.append(self.__task)
 
     def update_description(self, id, description):
         # TODO: Add logic to check ID
@@ -54,7 +52,9 @@ class Task:
         pass # Pass ID to delete task (require user to validate before deletion)
 
     def get_tasks(self):
-        pass # Fetch a list of all tasks
+        # Fetch a list of all tasks
+        for item in tasks:
+            print(item)
 
     def get_completed(self):
         pass 
@@ -68,8 +68,7 @@ class Task:
     def append_to_list(self):
         pass # Appends to list when method is called
 
-james = Task("james")
-james.add_description("Water plants")
-james.add_description("Hello")
-melissa = Task("Melissa")
-melissa.add_description("Test")
+james = Task()
+james.add_item("Water plants", "New")
+james.add_item("run", "New")
+james.get_tasks()

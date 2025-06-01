@@ -37,11 +37,17 @@ while active:
 
         case "status":
             id = int(input("Please enter a Task ID: "))
+            status_flag = True
 
-            # TODO: Validate status input
-            status = input("Please enter the status of this item: ")
+            while status_flag:
+                status = input("Please enter the status of this item (To Do | In Progress | Done): ").lower()
+                match status:
+                    case "to do" | "in progress" | "done":
+                        user.update_status(id, status)
+                        status_flag = False
 
-            user.update_status(id, status)
+                    case _:
+                        print("Invalid status, please enter")
 
         case "get":
             for task in tasks:

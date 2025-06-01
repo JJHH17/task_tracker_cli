@@ -58,14 +58,21 @@ class Task:
             if task["ID"] == id:
                 task["Status"] = status
                 task["Updated"] = datetime.today().strftime("%d-%m-%y")
-                print(f"Task ID {id} updated successfully")
+                print(f"Task ID {id} updated successfully.")
                 return
             
         print(f"Task ID {id} not found.")
 
 
     def complete_task(self, id):
-        pass # Pass ID to auto complete task
+        for task in tasks:
+            if task["ID"] == id:
+                task["Status"] = "Completed"
+                task["Updated"] = datetime.today().strftime("%d-%m-%y")
+                print(f"Task ID {id} completed!")
+                return
+            
+        print(f"Task ID {id} not found.")
 
 
     def delete_task(self, id):

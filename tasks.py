@@ -9,13 +9,12 @@ tasks = [] # Used to store tasks
 class Task:
 
     def add_item(self, description, status):
-        global id # Ensuring that ID is global
-        global tasks # Ensuring tasks list is global
-
+        global id  # Ensuring that ID is global
+        global tasks  # Ensuring tasks list is global
         id += 1
         self.__task = {
             "ID": id,
-            "Description": None, 
+            "Description": None,
             "Status": None,
             "Created": None,
             "Updated": None,
@@ -67,7 +66,7 @@ class Task:
     def complete_task(self, id):
         for task in tasks:
             if task["ID"] == id:
-                task["Status"] = "Completed"
+                task["Status"] = "Done"
                 task["Updated"] = datetime.today().strftime("%d-%m-%y")
                 print(f"Task ID {id} completed!")
                 return
@@ -100,14 +99,3 @@ class Task:
     def append_to_list(self):
         pass # Appends to list when method is called
 
-
-james = Task()
-james.add_item("Water plants", "New")
-james.add_item("run", "New")
-james.get_tasks()
-james.update_description(1, "don't water plants")
-james.update_description(2, "cry")
-james.update_description(100, "Hello world")
-james.add_status(10, "Completed")
-james.add_status(2, "nearly done")
-james.get_tasks()

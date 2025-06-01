@@ -20,9 +20,9 @@ while active:
             add_flag = True
 
             while add_flag:
-                status = input("Please enter the status of this item (ToDo | In Progress | Done): ").lower()
+                status = input("Please enter the status of this item (To Do | In Progress | Done): ").lower()
                 match status:
-                    case "todo" | "in progress" | "done":
+                    case "to do" | "in progress" | "done":
                         user.add_item(description, status)
                         add_flag = False
 
@@ -30,10 +30,18 @@ while active:
                         print("Invalid status, please enter")
 
         case "description":
-            id = input("Please enter a Task ID: ")
+            id = int(input("Please enter a Task ID: "))
             description = input("Please enter a description: ")
 
             user.update_description(id, description)
+
+        case "status":
+            id = int(input("Please enter a Task ID: "))
+
+            # TODO: Validate status input
+            status = input("Please enter the status of this item: ")
+
+            user.update_status(id, status)
 
         case "get":
             for task in tasks:

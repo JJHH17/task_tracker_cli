@@ -12,10 +12,12 @@ while active:
     user_input = input("What would you like to do? ").lower()
 
     match user_input:
+        # Exit criteria
         case "exit":
             active = False
 
         case "add":
+            # Allows user to add a new task
             description = input("What would you like to add? ")
             add_flag = True
 
@@ -30,12 +32,14 @@ while active:
                         print("Invalid status, please enter")
 
         case "description":
+            # Allows user to change description of given task
             id = int(input("Please enter a Task ID: "))
             description = input("Please enter a description: ")
 
             user.update_description(id, description)
 
         case "status":
+            # Allows user to change status of given task
             id = int(input("Please enter a Task ID: "))
             status_flag = True
 
@@ -49,6 +53,12 @@ while active:
                     case _:
                         print("Invalid status, please enter")
 
+        case "complete":
+            # Auto completes a given task
+            id = int(input("Please enter a Task ID: "))
+            user.complete_task(id)
+
         case "get":
+            # Fetches a list of all tasks
             for task in tasks:
                 print(task)

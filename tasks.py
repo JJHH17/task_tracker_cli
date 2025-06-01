@@ -39,17 +39,6 @@ class Task:
                 return # Prevents belowrejection message from being looped
             
         print(f"Task ID {id} not found.")
-                
-
-    def add_status(self, id, status):
-        for task in tasks:
-            if task["ID"] == id:
-                task["Status"] = status
-                task["Updated"] = datetime.today().strftime("%d-%m-%y")
-                print(f"Task ID {id} updated successfully.")
-                return 
-        
-        print(f"Task ID {id} not found.")
 
 
     def update_status(self, id, status):

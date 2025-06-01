@@ -42,24 +42,26 @@ class Task:
         print(f"Task ID {id} not found.")
                 
 
-
-
     def add_status(self, id, status):
         for task in tasks:
-            if id in task.values():
+            if task["ID"] == id:
                 task["Status"] = status
                 task["Updated"] = datetime.today().strftime("%d-%m-%y")
-            else:
-                print("Task ID not found")
+                print(f"Task ID {id} updated successfully.")
+                return 
+        
+        print(f"Task ID {id} not found.")
 
 
-    def update_status(self, status):
+    def update_status(self, id, status):
         for task in tasks:
-            if id in task.values():
+            if task["ID"] == id:
                 task["Status"] = status
                 task["Updated"] = datetime.today().strftime("%d-%m-%y")
-            else:
-                print("Task ID not found.")
+                print(f"Task ID {id} updated successfully")
+                return
+            
+        print(f"Task ID {id} not found.")
 
 
     def complete_task(self, id):
@@ -99,4 +101,6 @@ james.get_tasks()
 james.update_description(1, "don't water plants")
 james.update_description(2, "cry")
 james.update_description(100, "Hello world")
+james.add_status(10, "Completed")
+james.add_status(2, "nearly done")
 james.get_tasks()

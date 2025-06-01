@@ -33,24 +33,33 @@ class Task:
 
     def update_description(self, id, description):
         for task in tasks:
-            if id in task.values():
+            if task["ID"] == id:
                 task["Description"] = description
                 task["Updated"] = datetime.today().strftime("%d-%m-%y")
+                print(f"Task {id} updated successfully.")
+                return # Prevents belowrejection message from being looped
+            
+        print(f"Task ID {id} not found.")
+                
+
 
 
     def add_status(self, id, status):
-        # TODO: Add logic to check ID
-        # TODO: Only allow user to append "NEW, ONGOING, COMPLETED" as status
-        # TODO: APPEND TO LIST
-        self.__task["Status"] = status
-        self.__task["Updated"] = datetime.today().strftime("%d-%m-%y")
+        for task in tasks:
+            if id in task.values():
+                task["Status"] = status
+                task["Updated"] = datetime.today().strftime("%d-%m-%y")
+            else:
+                print("Task ID not found")
 
 
     def update_status(self, status):
-        # TODO: Add logic to check ID
-        # TODO: error if ID doesn't exist
-        self.__task["Status"] = status
-        self.__task["Updated"] = datetime.today().strftime("%d-%m-%y")
+        for task in tasks:
+            if id in task.values():
+                task["Status"] = status
+                task["Updated"] = datetime.today().strftime("%d-%m-%y")
+            else:
+                print("Task ID not found.")
 
 
     def complete_task(self, id):
@@ -89,4 +98,5 @@ james.add_item("run", "New")
 james.get_tasks()
 james.update_description(1, "don't water plants")
 james.update_description(2, "cry")
+james.update_description(100, "Hello world")
 james.get_tasks()

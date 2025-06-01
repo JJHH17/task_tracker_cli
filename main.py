@@ -1,7 +1,7 @@
 # File responsible for running project
 # Program will loop allow user to modify their list until an exit criteria is met
 
-from tasks import Task
+from tasks import Task, tasks
 from programMessage import header, body, footer
 
 active = True
@@ -29,7 +29,12 @@ while active:
                     case _:
                         print("Invalid status, please enter")
 
+        case "description":
+            id = input("Please enter a Task ID: ")
+            description = input("Please enter a description: ")
 
+            user.update_description(id, description)
 
         case "get":
-            print("You will see all items")
+            for task in tasks:
+                print(task)

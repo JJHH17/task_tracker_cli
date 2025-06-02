@@ -25,7 +25,7 @@ while active:
                 status = input("Please enter the status of this item (To Do | In Progress | Done): ").lower()
                 match status:
                     case "to do" | "in progress" | "done":
-                        user.add_item(description, status)
+                        user.add_item(description, status.capitalize())
                         add_flag = False
 
                     case _:

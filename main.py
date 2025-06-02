@@ -61,7 +61,7 @@ while active:
         case "delete":
             # Deletes a given entry
             id = int(input("Please enter the ID of the task you wish to delete: "))
-            user.delete_task()
+            user.delete_task(id)
 
         case "get":
             # Fetches a list of all tasks

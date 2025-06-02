@@ -63,25 +63,27 @@ class Task:
         print(f"Task ID {id} not found.")
 
 
-    def delete_task(self, id):
+    def delete_task(self, task_id):
         # TODO: Pass in ID, delete given entry if found, error if not, then change ID's to move down
+        global id # Passing ID as global for tracking
         found_id = False # Flag used to track each item
 
         for i, task in enumerate(tasks):
-            if task["ID"] == id:
+            if task["ID"] == task_id:
                 found_id = True
                 del tasks[i] # We remove via index
+                id = len(tasks) # Changing ID variable to current index length
                 break
 
         if not found_id:
-            print(f"Task ID {id} not found.")
+            print(f"Task ID {task_id} not found.")
             return
 
         # Looping across remaining tasks to change their ID
         for i, task in enumerate(tasks):
             task["ID"] = i + 1 # Starting from 1, as this is ID starting point
 
-        print(f"Task ID {id} removed successfully.")
+        print(f"Task ID {task_id} removed successfully.")
 
 
     def get_tasks(self):

@@ -44,7 +44,7 @@ while active:
             status_flag = True
 
             while status_flag:
-                status = input("Please enter the status of this item (To Do | In Progress | Done): ").lower()
+                status = input("Please enter the status of this item (To Do | In Progress | Done): ").title()
                 match status:
                     case "to do" | "in progress" | "done":
                         user.update_status(id, status)
@@ -75,3 +75,10 @@ while active:
         case "get uncompleted":
             # Fetches a list of all uncompleted tasks
             user.get_uncompleted()
+
+        case "get in progress":
+            # Fetches a list of all in progress tasks
+            user.get_inprogress()
+
+    # TODO: TEST THIS, ENSURE ALL ENTRIES HAVE reflective formatting, capitalized/titled
+    # TODO: Once done, write into a JSON and then read from there, rather than using prints

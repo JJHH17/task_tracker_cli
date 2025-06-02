@@ -104,7 +104,7 @@ class Task:
 
 
     def get_uncompleted(self):
-        # Fetches a list
+        # Fetches a list of uncompleted tasks
         uncompleted_tasks = [task for task in tasks if task["Status"] != "Done"]
 
         if not uncompleted_tasks:
@@ -114,4 +114,11 @@ class Task:
                 print(task)
 
     def get_inprogress(self):
-        pass
+        # Fetches a list of in progress tasks
+        in_progress = [task for task in tasks if task["Status"] == "in progress"]
+
+        if not in_progress:
+            print("There are currently 0 tasks in progress")
+        else:
+            for task in in_progress:
+                print(task)

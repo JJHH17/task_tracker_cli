@@ -23,7 +23,7 @@ class Task:
         # Updates "Created at" value
         self.__task["Created"] = datetime.today().strftime("%d-%m-%y")
         self.__task["ID"] = id
-        self.__task["Description"] = description
+        self.__task["Description"] = description.capitalize()
         self.__task["Status"] = status
         self.__task["Updated"] = datetime.today().strftime("%d-%m-%y")
 
@@ -36,7 +36,7 @@ class Task:
                 task["Description"] = description
                 task["Updated"] = datetime.today().strftime("%d-%m-%y")
                 print(f"Task {id} updated successfully.")
-                return # Prevents belowrejection message from being looped
+                return # Prevents below rejection message from being looped
             
         print(f"Task ID {id} not found.")
 
@@ -93,7 +93,14 @@ class Task:
 
 
     def get_completed(self):
-        pass 
+        # Fetches a list of completed items
+        completed_tasks = [task for task in tasks if task["Status"] == "Done"]
+
+        if not completed_tasks:
+            print("There are currently 0 completed tasks.")
+        else:
+            for task in completed_tasks:
+                print(task)
 
 
     def get_uncompleted(self):
@@ -106,4 +113,4 @@ class Task:
 
     def append_to_list(self):
         pass # Appends to list when method is called
-
+        # This can be removed due to appending to list being called by individual methods

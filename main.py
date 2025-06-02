@@ -67,3 +67,8 @@ while active:
             # Fetches a list of all tasks
             for task in tasks:
                 print(task)
+
+        case "get completed":
+            # Fetches a list of all completed tasks
+            # TODO - Fix, items aren't fetches and method isn't initiated
+            user.get_completed()

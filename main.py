@@ -70,5 +70,8 @@ while active:
 
         case "get completed":
             # Fetches a list of all completed tasks
-            # TODO - Fix, items aren't fetches and method isn't initiated
             user.get_completed()
+
+        case "get uncompleted":
+            # Fetches a list of all uncompleted tasks
+            user.get_uncompleted()

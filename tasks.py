@@ -109,8 +109,3 @@ class Task:
 
     def get_inprogress(self):
         pass
-
-
-    def append_to_list(self):
-        pass # Appends to list when method is called
-        # This can be removed due to appending to list being called by individual methods

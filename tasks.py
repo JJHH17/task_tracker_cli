@@ -64,7 +64,24 @@ class Task:
 
 
     def delete_task(self, id):
-        pass # Pass ID to delete task (require user to validate before deletion)
+        # TODO: Pass in ID, delete given entry if found, error if not, then change ID's to move down
+        found_id = False # Flag used to track each item
+
+        for i, task in enumerate(tasks):
+            if task["ID"] == id:
+                found_id = True
+                del tasks[i] # We remove via index
+                break
+
+        if not found_id:
+            print(f"Task ID {id} not found.")
+            return
+
+        # Looping across remaining tasks to change their ID
+        for i, task in enumerate(tasks):
+            task["ID"] = i + 1 # Starting from 1, as this is ID starting point
+
+        print(f"Task ID {id} removed successfully.")
 
 
     def get_tasks(self):

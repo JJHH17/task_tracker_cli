@@ -58,6 +58,11 @@ while active:
             id = int(input("Please enter a Task ID: "))
             user.complete_task(id)
 
+        case "delete":
+            # Deletes a given entry
+            id = int(input("Please enter the ID of the task you wish to delete: "))
+            user.delete_task()
+
         case "get":
             # Fetches a list of all tasks
             for task in tasks:

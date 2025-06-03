@@ -82,5 +82,6 @@ while active:
 
     # TODO: REMOVE WHITESPACE from user input
     # TODO: Refactor if and where needed
+    # Ensure deleting the JSON file creates a new file, test all functions
     # TODO: TIDY UP user messaging, provide clear instructions for user, how to use each function/call
     # TODO: Push and upload

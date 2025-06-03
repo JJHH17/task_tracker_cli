@@ -26,4 +26,4 @@ def read_file():
 # Used to append to file
 def append_file(input):
     with open(path, "a") as f:
-        f.write(input)
+        json.dump(input, f, indent=4)

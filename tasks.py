@@ -1,6 +1,7 @@
 # FIle responsible for creating and modifying task objects
 
 from datetime import datetime # Used to get "Created at" and "Updated at" values
+from fileHandler import append_file
 
 id = 0 # Used to track ID of tasks
 tasks = [] # Used to store tasks
@@ -28,6 +29,7 @@ class Task:
         self.__task["Updated"] = datetime.today().strftime("%d-%m-%y")
 
         tasks.append(self.__task) # Appending to list to contain tasks
+        append_file(self.__task) # Appends entry to JSON file
 
 
     def update_description(self, id, description):
@@ -113,6 +115,7 @@ class Task:
         else:
             for task in uncompleted_tasks:
                 print(task)
+
 
     def get_inprogress(self):
         # Fetches a list of in progress tasks

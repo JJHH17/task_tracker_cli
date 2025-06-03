@@ -1,7 +1,7 @@
 # FIle responsible for creating and modifying task objects
 
 from datetime import datetime # Used to get "Created at" and "Updated at" values
-from fileHandler import append_file, feed_file
+from fileHandler import append_file, feed_file, read_file
 
 id = 0 # Used to track ID of tasks
 tasks = feed_file() # Used to store tasks
@@ -40,6 +40,8 @@ class Task:
                 task["Description"] = description
                 task["Updated"] = datetime.today().strftime("%d-%m-%y")
                 print(f"Task {id} updated successfully.")
+
+                append_file(tasks)  # Appends entry to JSON file
                 return # Prevents below rejection message from being looped
             
         print(f"Task ID {id} not found.")
@@ -63,6 +65,8 @@ class Task:
                 task["Status"] = "Done"
                 task["Updated"] = datetime.today().strftime("%d-%m-%y")
                 print(f"Task ID {id} completed!")
+
+                append_file(tasks)  # Appends entry to JSON file
                 return
             
         print(f"Task ID {id} not found.")

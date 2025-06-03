@@ -24,7 +24,7 @@ class Task:
         self.__task["Created"] = datetime.today().strftime("%d-%m-%y")
         self.__task["ID"] = id
         self.__task["Description"] = description.capitalize()
-        self.__task["Status"] = status
+        self.__task["Status"] = status.title()
         self.__task["Updated"] = datetime.today().strftime("%d-%m-%y")
 
         tasks.append(self.__task) # Appending to list to contain tasks
@@ -44,7 +44,7 @@ class Task:
     def update_status(self, id, status):
         for task in tasks:
             if task["ID"] == id:
-                task["Status"] = status
+                task["Status"] = status.title()
                 task["Updated"] = datetime.today().strftime("%d-%m-%y")
                 print(f"Task ID {id} updated successfully.")
                 return
@@ -53,6 +53,7 @@ class Task:
 
 
     def complete_task(self, id):
+        # Sets given task ID to Completed status
         for task in tasks:
             if task["ID"] == id:
                 task["Status"] = "Done"
@@ -64,7 +65,7 @@ class Task:
 
 
     def delete_task(self, task_id):
-        # TODO: Pass in ID, delete given entry if found, error if not, then change ID's to move down
+        #  Deletes a task based on given ID
         global id # Passing ID as global for tracking
         found_id = False # Flag used to track each item
 
@@ -115,7 +116,7 @@ class Task:
 
     def get_inprogress(self):
         # Fetches a list of in progress tasks
-        in_progress = [task for task in tasks if task["Status"] == "in progress"]
+        in_progress = [task for task in tasks if task["Status"] == "In Progress"]
 
         if not in_progress:
             print("There are currently 0 tasks in progress")

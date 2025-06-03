@@ -22,10 +22,10 @@ while active:
             add_flag = True
 
             while add_flag:
-                status = input("Please enter the status of this item (To Do | In Progress | Done): ").lower()
+                status = input("Please enter the status of this item (To Do | In Progress | Done): ").title()
                 match status:
-                    case "to do" | "in progress" | "done":
-                        user.add_item(description, status.capitalize())
+                    case "To Do" | "In Progress" | "Done":
+                        user.add_item(description, status)
                         add_flag = False
 
                     case _:
@@ -80,5 +80,4 @@ while active:
             # Fetches a list of all in progress tasks
             user.get_inprogress()
 
-    # TODO: TEST THIS, ENSURE ALL ENTRIES HAVE reflective formatting, capitalized/titled
-    # TODO: Once done, write into a JSON and then read from there, rather than using prints
+    # TODO: write into a JSON and then read from there, rather than using prints

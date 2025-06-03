@@ -81,4 +81,5 @@ while active:
             user.get_inprogress()
 
     # TODO: write into a JSON and then read from there, rather than using prints
+        # TODO: Support deletion function now this works
     # TODO: REMOVE WHITESPACE from user input

@@ -91,8 +91,11 @@ class Task:
         # Looping across remaining tasks to change their ID
         for i, task in enumerate(tasks):
             task["ID"] = i + 1 # Starting from 1, as this is ID starting point
+            append_file(tasks)  # Appends entry to JSON file
 
         print(f"Task ID {task_id} removed successfully.")
+
+        # TODO: Ensure program deletes entries via JSON
 
 
     def get_tasks(self):

@@ -80,6 +80,7 @@ while active:
             # Fetches a list of all in progress tasks
             user.get_inprogress()
 
-    # TODO: write into a JSON and then read from there, rather than using prints
-        # TODO: Support deletion function now this works
     # TODO: REMOVE WHITESPACE from user input
+    # TODO: Refactor if and where needed
+    # TODO: TIDY UP user messaging, provide clear instructions for user, how to use each function/call
+    # TODO: Push and upload

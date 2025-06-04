@@ -2,14 +2,14 @@
 # Program will loop allow user to modify their list until an exit criteria is met
 
 from tasks import Task, tasks
-from programMessage import header, body, footer
+from programMessage import header
 
-active = True
+active = True # Used to loop through program until exit prompt is entered
 
 user = Task() # Intializing an instance
 
 while active:
-    user_input = input("What would you like to do? ").lower()
+    user_input = input("What would you like to do? ").lower().strip()
 
     match user_input:
         # Exit criteria
@@ -22,7 +22,7 @@ while active:
             add_flag = True
 
             while add_flag:
-                status = input("Please enter the status of this item (To Do | In Progress | Done): ").title()
+                status = input("Please enter the status of this item (To Do | In Progress | Done): ").title().strip()
                 match status:
                     case "To Do" | "In Progress" | "Done":
                         user.add_item(description, status)
@@ -80,8 +80,7 @@ while active:
             # Fetches a list of all in progress tasks
             user.get_inprogress()
 
-    # TODO: REMOVE WHITESPACE from user input
     # TODO: Refactor if and where needed
-    # Ensure deleting the JSON file creates a new file, test all functions
+    # TODO: Ensure deleting the JSON file creates a new file, test all functions
     # TODO: TIDY UP user messaging, provide clear instructions for user, how to use each function/call
     # TODO: Push and upload

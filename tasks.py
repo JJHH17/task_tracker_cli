@@ -7,7 +7,7 @@ id = 0 # Used to track ID of tasks
 tasks = feed_file() # Used to store tasks
 
 if tasks:
-    id = max(task["ID"] for task in tasks)
+    id = max(task["ID"] for task in tasks) # Fetches largest ID as the current ID value
 
 class Task:
 

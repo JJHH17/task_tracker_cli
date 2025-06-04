@@ -9,7 +9,7 @@ active = True # Used to loop through program until exit prompt is entered
 user = Task() # Intializing an instance
 
 while active:
-    user_input = input("What would you like to do? ").lower().strip()
+    user_input = input("What would you like to do? (Add | Description | Status | Completed | Get | Get Completed | Get Uncompleted | Get In Progress) : ").lower().strip()
 
     match user_input:
         # Exit criteria
@@ -53,7 +53,7 @@ while active:
                     case _:
                         print("Invalid status, please enter")
 
-        case "complete":
+        case "completed":
             # Auto completes a given task
             id = int(input("Please enter a Task ID: "))
             user.complete_task(id)
@@ -80,6 +80,5 @@ while active:
             # Fetches a list of all in progress tasks
             user.get_inprogress()
 
-    # TODO: Ensure deleting the JSON file creates a new file, test all functions
     # TODO: TIDY UP user messaging, provide clear instructions for user, how to use each function/call
     # TODO: Push and upload

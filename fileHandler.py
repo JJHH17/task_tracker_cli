@@ -7,13 +7,6 @@ from pathlib import Path
 # Checking whether file exists or not
 path = "./tasks.json"
 
-# Used to check if file exists
-def check_file():
-    if not os.path.exists(path):
-        with open(path, "w") as f:
-            pass  # Creates the file
-        print("File created.")
-
 # Used to write to file
 def write_file(input):
     with open(path, "w") as f:

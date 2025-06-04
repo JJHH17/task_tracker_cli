@@ -44,7 +44,7 @@ while active:
             status_flag = True
 
             while status_flag:
-                status = input("Please enter the status of this item (To Do | In Progress | Done): ").title()
+                status = input("Please enter the status of this item (To Do | In Progress | Done): ")
                 match status:
                     case "to do" | "in progress" | "done":
                         user.update_status(id, status)
@@ -80,7 +80,6 @@ while active:
             # Fetches a list of all in progress tasks
             user.get_inprogress()
 
-    # TODO: Refactor if and where needed
     # TODO: Ensure deleting the JSON file creates a new file, test all functions
     # TODO: TIDY UP user messaging, provide clear instructions for user, how to use each function/call
     # TODO: Push and upload

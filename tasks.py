@@ -53,6 +53,7 @@ class Task:
                 task["Status"] = status.title()
                 task["Updated"] = datetime.today().strftime("%d-%m-%y")
                 print(f"Task ID {id} updated successfully.")
+                append_file(tasks)  # Appends entry to JSON file
                 return
             
         print(f"Task ID {id} not found.")

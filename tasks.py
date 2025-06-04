@@ -2,6 +2,7 @@
 
 from datetime import datetime # Used to get "Created at" and "Updated at" values
 from fileHandler import append_file, feed_file, read_file
+import json
 
 id = 0 # Used to track ID of tasks
 tasks = feed_file() # Used to store tasks
@@ -96,13 +97,11 @@ class Task:
 
         print(f"Task ID {task_id} removed successfully.")
 
-        # TODO: Ensure program deletes entries via JSON
-
 
     def get_tasks(self):
         # Fetch a list of all tasks
-        for item in tasks:
-            print(item)
+        for task in tasks:
+            print(" ".join(f"{key}: {value},\n" for key, value in task.items()))
 
 
     def get_completed(self):
@@ -113,7 +112,10 @@ class Task:
             print("There are currently 0 completed tasks.")
         else:
             for task in completed_tasks:
-                print(task)
+                for key, value in task.items():
+                    print(f"{key}: {value},")
+                print()  # Used to print blank lines between items
+
 
 
     def get_uncompleted(self):
@@ -124,7 +126,9 @@ class Task:
             print("There are currently 0 uncompleted tasks.")
         else:
             for task in uncompleted_tasks:
-                print(task)
+                for key, value in task.items():
+                    print(f"{key}: {value},")
+                print()  # Used to print blank lines between items
 
 
     def get_inprogress(self):
@@ -132,7 +136,10 @@ class Task:
         in_progress = [task for task in tasks if task["Status"] == "In Progress"]
 
         if not in_progress:
-            print("There are currently 0 tasks in progress")
+            print("There are currently 0 tasks in progress.")
         else:
             for task in in_progress:
-                print(task)
+                for key, value in task.items():
+                    print(f"{key}: {value},")
+                print()  # Used to print blank lines between items
+

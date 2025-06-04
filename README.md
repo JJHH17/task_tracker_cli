@@ -8,7 +8,7 @@ A simple task tracker, usable via the CLI.
 - Python 3 is needed in order for the programto be initially executed.
 - The project will generate a "tasks.json" in the projects directory, this contains the relevant Tasks.
 - No external libraries or installations are required for this project, although Python libraries are imported.
-- The JSON, OS and Pathlib libraries are imported for this project.
+- The JSON, OS and Pathlib libraries are imported for this project.b
 
 # Running the tool:
 1. Run ```python3 main.py``` to initiate the project.

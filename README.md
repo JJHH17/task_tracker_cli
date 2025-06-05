@@ -3,6 +3,7 @@ A simple task tracker, usable via the CLI.
 
 # Info:
 - This tool allows users to Add, Delete, Edit and Get Tasks populated via the command line.
+- Project specifications can be found via: https://roadmap.sh/projects/task-tracker
 
 # Project Requirements:
 - Python 3 is needed in order for the programto be initially executed.

@@ -9,7 +9,8 @@ active = True # Used to loop through program until exit prompt is entered
 user = Task() # Intializing an instance
 
 while active:
-    user_input = input("\nWhat would you like to do? (Add | Description | Status | Completed | Get | Get Completed | Get Uncompleted | Get In Progress | Exit) : ").lower().strip()
+    user_input = input("""\n_______________________________________________\n
+What would you like to do? (Add | Description | Status | Completed | Get | Get Completed | Get Uncompleted | Get In Progress | Exit) : """).lower().strip()
 
     match user_input:
         # Exit criteria

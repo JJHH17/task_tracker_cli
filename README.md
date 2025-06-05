@@ -11,8 +11,9 @@ A simple task tracker, usable via the CLI.
 - The JSON, OS and Pathlib libraries are imported for this project.b
 
 # Running the tool:
-1. Run ```python3 main.py``` to initiate the project.
-2. Follow the commands as fed back via the command line.
+1. 'cd' to the project directory once you've cloned the repo.
+2. Run ```python3 main.py``` to initiate the project.
+3. Follow the commands as fed back via the command line.
 
 - Add = Allows you to add a new Task.
 - Description = Allows you to edit the description of an existing Task.
